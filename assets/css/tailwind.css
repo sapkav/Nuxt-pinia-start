@@ -2,27 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-gray-50;
+
+.btn  {
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-@layer components {
-    .btn {
-        background-color: rgb(60, 176, 60);
-        color: white;
-        border-radius: 5px;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 5px;
-        transition: 5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
+.btn:hover {
+    transform: scale(1.1);
+    background-color: rgb(28, 173, 173);
+}
 
-    .btn:hover {
-        transform: scale(1.2);
-        color: black;
-        background-color: rgb(28, 173, 173);
-    }
+.router-link-exact-active  {
+    background-color: rgb(60, 176, 60);
+    color: white;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
