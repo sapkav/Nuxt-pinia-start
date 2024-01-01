@@ -1,1 +1,0 @@
-export { default } from "file:///Users/saipashevvanya/Desktop/projects/Nuxt-pinia-start/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
