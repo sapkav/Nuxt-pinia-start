@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>About page</h1>
+    <div class="pl-3">
+        <h1 class="underline">About page</h1>
         <NuxtLink to="/">Home page</NuxtLink>
     </div>
 </template>
