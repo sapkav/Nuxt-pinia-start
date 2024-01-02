@@ -1,0 +1,20 @@
+{
+  "games": [
+      {
+          "id": 0,
+          "name": "Dota 2",
+          "tag" : [
+              "RPG",
+              "MOMO"
+          ]
+      },
+      {
+          "id": 1,
+          "name": "CS:GO",
+          "tag" : [
+              "SHOOT",
+              "MUT"
+          ]
+      }
+  ]
+}

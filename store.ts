@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { defineStore } from 'pinia'
 
 export const useFriendsStore = defineStore({
@@ -31,33 +32,33 @@ export const useFriendsStore = defineStore({
     }
 })
 
-export const useCounterStore = defineStore({
-    id: 'counter-store',
+export const useGamesStore = defineStore({
+    id: 'games-store',
     state: () => {
         return {
-            counters: [{
-                name: 'Vanya',
-                count: 0,
-            }]
+            games: []
         }
     },
 
     getters: {
-        doubleCount: (state) => {
-            return function(count: number) {
-                let final = state.counters.find(a => a.count === count);
-                return final ? final.count * 2 : 'nea';
-            }
-        }
+        // doubleCount: (state) => {
+        //     return function(count: number) {
+        //         let final = state.counters.find(a => a.count === count);
+        //         return final ? final.count * 2 : 'nea';
+        //     }
+        // }
     },
 
     actions: {
-        increment(count: number) {
-            this.counters.forEach(item => {
-                if (item.count === count) {
-                    item.count = 23;
-                }
-            })
-        },
+        async getGames() {
+            this.games = await (await axios('http://localhost:3004/games')).data.slice(0);
+        }
+        // increment(count: number) {
+        //     this.counters.forEach(item => {
+        //         if (item.count === count) {
+        //             item.count = 23;
+        //         }
+        //     })
+        // },
     },
 })
