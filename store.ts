@@ -34,11 +34,10 @@ export const useFriendsStore = defineStore({
 
 export const useGamesStore = defineStore({
     id: 'games-store',
-    state: () => {
-        return {
-            games: []
-        }
-    },
+    state: () => ({
+        games: [],
+        loading: false,
+    }),
 
     getters: {
         // doubleCount: (state) => {
@@ -51,7 +50,9 @@ export const useGamesStore = defineStore({
 
     actions: {
         async getGames() {
-            this.games = await (await axios('http://localhost:3004/games')).data.slice(0);
+            this.loading = true;
+            this.games = (await axios('http://localhost:3004/games')).data.slice(0);
+            this.loading = false;
         }
         // increment(count: number) {
         //     this.counters.forEach(item => {

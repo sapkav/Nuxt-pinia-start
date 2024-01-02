@@ -1,20 +1,49 @@
 {
-  "games": [
-      {
-          "id": 0,
-          "name": "Dota 2",
-          "tag" : [
-              "RPG",
-              "MOMO"
-          ]
-      },
-      {
-          "id": 1,
-          "name": "CS:GO",
-          "tag" : [
-              "SHOOT",
-              "MUT"
-          ]
-      }
-  ]
+    "games": [
+        {
+            "id": 0,
+            "name": "Dota 2",
+            "img": "dota",
+            "tag" : [
+                "RPG",
+                "MOMO"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "CS:GO",
+            "img": "dota",
+            "tag" : [
+                "SHOOT",
+                "MUT"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "WOW",
+            "img": "dota",
+            "tag" : [
+                "SHOOT",
+                "MUT"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Cuphead",
+            "img": "dota",
+            "tag" : [
+                "SHOOT",
+                "MUT"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "It takes two",
+            "img": "dota",
+            "tag" : [
+                "SHOOT",
+                "MUT"
+            ]
+        }
+    ]
 }
