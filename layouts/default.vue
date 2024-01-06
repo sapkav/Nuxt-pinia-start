@@ -1,6 +1,6 @@
 <template>
-    <div class="shadow-lg bg-white; pl-5 pt-4 pb-4 flex gap-5 round">
-        <div class="flex container gap-5">
+    <div class="shadow-lg bg-white pl-5 pt-4 pb-4 gap-5 round flex">
+        <div class="flex container gap-5 w-full">
             <NuxtLink to="/" class="btn">home page</NuxtLink>
             <NuxtLink to="/about" class="btn">about page</NuxtLink>
             <NuxtLink to="/games" class="btn">games page</NuxtLink>

@@ -3,7 +3,7 @@
         {
             "id": 0,
             "name": "Dota 2",
-            "img": "dota",
+            "img": "https://dota2guru.ru/wp-content/uploads/2019/10/Dota-2-character-Queen-Of-Pain-Wraith-King-Pudge-Meepo-Fantasy-Art-Wallpaper-HD-2560x1440-1920x1200.jpg",
             "tag" : [
                 "RPG",
                 "MOMO"
@@ -12,7 +12,7 @@
         {
             "id": 1,
             "name": "CS:GO",
-            "img": "dota",
+            "img": "https://cybersport.metaratings.ru/storage/images/b0/95/b09560c3977c2afcf5081ebb10ba7a74.jpg",
             "tag" : [
                 "SHOOT",
                 "MUT"
@@ -20,8 +20,8 @@
         },
         {
             "id": 2,
-            "name": "WOW",
-            "img": "dota",
+            "name": "It takes two",
+            "img": "https://gaming-cdn.com/images/products/7154/orig-fallback-v1/it-takes-two-pc-game-steam-cover.jpg?v=1672571500",
             "tag" : [
                 "SHOOT",
                 "MUT"
@@ -30,7 +30,7 @@
         {
             "id": 3,
             "name": "Cuphead",
-            "img": "dota",
+            "img": "https://img.razrisyika.ru/kart/48/188285-cuphead-25.jpg",
             "tag" : [
                 "SHOOT",
                 "MUT"
@@ -38,8 +38,8 @@
         },
         {
             "id": 4,
-            "name": "It takes two",
-            "img": "dota",
+            "name": "PUBG",
+            "img": "https://pic.rutubelist.ru/video/8b/d8/8bd8186ba270f59b8dd83d91413ed979.jpg",
             "tag" : [
                 "SHOOT",
                 "MUT"

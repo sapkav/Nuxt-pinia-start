@@ -1,12 +1,9 @@
 <template>
-    <div class="border-solid pl-5 text-xl">
+    <div class="border-solid pl-5 text-xl bg-slate-900 min-h-full p-6" style="height: auto">
         <Preloader v-if="gameStore.loading" />
-        <div class="grid grid-cols-4 justify-center pt-1 gap-5 product_item">
-            <div v-for="item in gameStore.games" :key="item" class="justify-center grid pt-2">
-                <div class="grid justify-items-center ">
-                    <img src="@/assets/img/dota.jpg" class="w-9/12 max-w-80">
-                    <button class="pt-1">{{ item.name }}</button>
-                </div>
+        <div class="grid grid-cols-4 justify-center gap-10 product_item">
+            <div v-for="item in gameStore.games" :key="item" class="justify-center grid pt-2 h-[300px]">
+                <GameCard :game="item" />
             </div>
         </div>
     </div>
