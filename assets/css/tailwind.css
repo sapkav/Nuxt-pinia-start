@@ -162,7 +162,7 @@
     position: absolute;
     top: 220px;
     width: 0px;
-    animation: 2s linear 1.9s infinite cliac;
+    animation: 2s linear 2s infinite cliac;
 }
 
 @keyframes cliac {

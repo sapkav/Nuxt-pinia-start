@@ -14,18 +14,19 @@
     "@nuxtjs/tailwindcss": "^6.10.3",
     "css": "^3.0.0",
     "nuxt": "^3.9.0",
+    "nuxt-security": "^1.0.0",
     "tailwind": "^4.0.0",
     "tailwind-config-viewer": "^1.7.1",
     "vue": "^3.4.3",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
     "@pinia/nuxt": "^0.5.1",
     "axios": "^1.6.3",
     "json-server": "^0.17.4",
+    "nuxt-helm": "^0.0.2",
     "pinia": "^2.1.7"
-  },
-  "overrides": {
-    "vue": "latest"
   }
 }

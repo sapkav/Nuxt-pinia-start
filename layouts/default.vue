@@ -1,10 +1,10 @@
 <template>
     <div class="shadow-lg bg-white pl-5 pt-4 pb-4 gap-5 round flex">
         <div class="flex container gap-5 w-full">
-            <NuxtLink to="/" class="btn">home page</NuxtLink>
-            <NuxtLink to="/about" class="btn">about page</NuxtLink>
-            <NuxtLink to="/games" class="btn">games page</NuxtLink>
-            <NuxtLink to="/love" class="btn">love page</NuxtLink>
+            <NuxtLink to="/" class="btn">Home</NuxtLink>
+            <NuxtLink to="/weather" class="btn">Weather</NuxtLink>
+            <NuxtLink to="/games" class="btn">Games</NuxtLink>
+            <NuxtLink to="/love" class="btn">Love</NuxtLink>
         </div>
         <div class="container mx-auto p-4 text-blue-700">
             <slot />

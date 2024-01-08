@@ -4,7 +4,7 @@
             :src="game.img"
             loading="lazy"
             title="click for details"
-            class="h-[280px] w-[350px] border-solid border-white border-2"></NuxtLink>
+            class="h-[220px] w-[350px] border-solid border-white border-2"></NuxtLink>
         <div class="pt-1 text-white z-10">{{ game.name }}</div>
     </div>
 </template>

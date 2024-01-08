@@ -63,3 +63,16 @@ export const useGamesStore = defineStore({
         // },
     },
 })
+
+export const useCityStore = defineStore({
+    id: 'city-store',
+    state: () => ({
+        citys: ['Zelenograd', 'Moscow', 'London', 'Ufa', 'New York', 'Kosovo'],
+    }),
+
+    getters: {
+    },
+
+    actions: {
+    },
+})

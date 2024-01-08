@@ -1,5 +1,5 @@
 <template>
-    <div class="text-4xl font-bold text-black-700 p-10 flex justify-center items-center">
+    <div class="text-4xl font-bold text-black-700 p-10 flex justify-center items-center bg-gray-700" style="height: calc(100vh - 64px)">
         <div class="absolute left-[100px] top-[100px]">Просто схожу с ума</div>
         <img src="../assets/img/rocket.png" class='w-[100px] rocket-animate'>
         <div class="scale-150 text-blue-700">Репа</div> <div class="rotate-90 pl-5">для</div>
