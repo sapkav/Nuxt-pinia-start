@@ -1,8 +1,39 @@
 <template>
-    <div class="p-3" v-if="isLoading">
-        <div class="rounded h-[240px] w-[300px] border-gray-400 border-2 p-1 text-gray-100" :style="{background: `url(${bgUrl})`}">
-            <h2 class="text-center">{{ city }} {{weather.condition.text}}</h2>
-            <div>Погода сейчас: {{ weather.feelslike_c }}°</div>
+    <div v-if="isLoading" class="p-3">
+        <div class="rounded h-[250px] w-[300px] border-gray-400 border-2 p-1 text-gray-400 weather-card">
+            <h2 class="text-center text-xl font-bold">{{ city }}</h2> <!--{{weather.condition.text}}-->
+            <div class="grid justify-items-center font-bold" style="grid-template-columns: 3fr 7fr; height: 100px; align-items: center">
+                <div>
+                    <img width="80" :src="`https:${weather.condition.icon}`">
+                </div>
+                <div style="text-align: center; font-size: 16px">
+                    <div class="text-2xl">{{ weather.feelslike_c }}°</div>
+                    <div>{{weather.condition.text}}</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-4 justify-items-center h-[60px] items-center">
+                <div class="grid justify-items-center" title="Скорость ветра">
+                    <img width="32" src="@/assets/img/wind-black.png">
+                    <div>{{ mlToKm }} м/c</div>
+                </div>
+                <div class="grid justify-items-center" title="Влажность">
+                    <img width="32" src="@/assets/img/humidity-black.png">
+                    <div>{{ weather.humidity }} %</div>
+                </div>
+                <div class="grid justify-items-center" title="Давление">
+                    <img width="32" src="@/assets/img/wind-black.png">
+                    <div>{{ mbToMm }} мм</div>
+                </div>
+                <div class="grid justify-items-center" title="Качество воздуха">
+                    <img width="32" src="@/assets/img/wind-black.png">
+                    <div>{{ weather.air_quality['us-epa-index']}}/7</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 justify-items-center pt-3">
+                <button class="btn" style="background-color: gray">let's go 1</button>
+                <button class="btn" style="background-color: gray">let's go 2</button>
+            </div>
+            <!-- <div>Погода сейчас: {{ weather.feelslike_c }}°</div>
             <div class="flex">
                 <div class="pt-5">{{ weather.condition.text }}</div>
                 <img width="64" :src="`https:${weather.condition.icon}`">
@@ -13,7 +44,7 @@
             </div>
             <div>Скорость ветра: {{ weather.wind_kph }} км/ч ~ {{ mlToKm }} м/c</div>
             <div>Давление: {{ mbToMm }} мм рт. ст.</div>
-            <div>Влажность: {{ weather.humidity }} %</div>
+            <div>Влажность: {{ weather.humidity }} %</div> -->
         </div>
         <!-- <div>{{ weather }}</div> -->
     </div>
@@ -39,7 +70,8 @@ export default {
             5: 'Очень вредный для здоровья',
             6: 'Опасный',
         };
-        this.bgUrl = 'https://i.pinimg.com/originals/7c/fa/4a/7cfa4a5203ff965e1c7e83d700391b54.jpg';
+        this.bgUrl = 'https://i.pinimg.com/originals/51/f8/f5/51f8f53b6cab32db3810bc396c280158.jpg'; 
+        //https://i.pinimg.com/originals/7c/fa/4a/7cfa4a5203ff965e1c7e83d700391b54.jpg
         this.bgObj - [
             {
                 "code" : 1000,
@@ -354,5 +386,10 @@ export default {
 </script>
 
 <style>
-
+.weather-card {
+    border-radius: 10px;
+    background: #d3e3fd;
+    color: #24335b;
+    box-shadow: 6px 6px 3px rgb(43, 39, 39);
+}
 </style>
