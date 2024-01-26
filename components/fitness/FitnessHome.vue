@@ -15,6 +15,7 @@
                     />
             </div>
         </div>
+        <h1>activity</h1>
         <fitness-activity />
     </div>
 </template>
@@ -34,17 +35,21 @@ export default {
                 is3D: true,
                 pieStartAngle: 80,
                 tooltip: { ignoreBounds: false },
-                backgroundColor: '#9C23D7',
+                backgroundColor: 'transparent',
                 legend: {
                     position: 'none',
                     alignment: 'end',
                     maxLines: 10,
-                }
+                },
+                slices: { 
+                    0: { offset: 0.15, color: 'gray' },
+                    1: { color: 'purple' },
+                },
             },
             chartData: [
                 ['1','2'],
-                ['test', 2323],
-                ['test2', 4444],
+                ['test', 80],
+                ['test2', 20],
             ]
         }
     }
@@ -65,7 +70,7 @@ export default {
 
 .fitness-bmi {
     width: 80%;
-    height: 200px;
+    height: 250px;
     background-color: #9C23D7;
     border-radius: 30px;
     margin-top: 30px;
