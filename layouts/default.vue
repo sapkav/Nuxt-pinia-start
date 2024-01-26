@@ -5,6 +5,7 @@
             <NuxtLink to="/weather" class="btn">Weather</NuxtLink>
             <NuxtLink to="/games" class="btn">Games</NuxtLink>
             <NuxtLink to="/words" class="btn">5 Words</NuxtLink>
+            <NuxtLink to="/fitness" class="btn">Fitness</NuxtLink>
         </div>
         <div class="container mx-auto p-4 text-blue-700">
             <slot />
