@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
   ],
+  css: [
+    // SCSS file in the project
+    "@/assets/scss/main.scss", // you should add main.scss somewhere in your app
+  ],
   components: [
     {
       path: '~/components',

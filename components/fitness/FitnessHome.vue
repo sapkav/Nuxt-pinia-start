@@ -1,5 +1,5 @@
 <template>
-    <div class="fitness-main">
+    <div class="fitness-osnova">
         <h1>top</h1>
         <div class="fitness-bmi">
             <div>
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style>
-.fitness-main {
+.fitness-osnova {
     background-color: #161818;
     min-height: calc(100vh - 64px);
     width: 100%;
