@@ -45,5 +45,15 @@
                 "MUT"
             ]
         }
+    ],
+    "citys" : [
+        "Zelenograd",
+        "Moscow",
+        "London",
+        "Ufa",
+        "New York",
+        "Kosovo",
+        "Amsterdam",
+        "Sochi"
     ]
 }
