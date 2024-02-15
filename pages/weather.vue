@@ -2,13 +2,14 @@
   <div class="bg-[#f1f1f1]" style="min-height: calc(100vh - 64px)">
     <pop-up-city
       v-if="isCity"
+      @closePopUp="closePopUp"
       />
     <div class="weather-header">
       Мониторинг погоды в разных городах
       <input type="text" v-model="searchValue">
       <button @click="cityAdding">Добавить город</button>
     </div>
-    <div class="max-h-[50vh] h-[50vh] grid overflow-auto" style="grid-template-columns: repeat(auto-fit, minmax(300px, 330px)); justify-content: flex-start;">
+    <div class="max-h-[50vh] h-[50vh] grid overflow-auto" style="grid-template-columns: repeat(auto-fit, minmax(300px, 330px)); justify-content: space-around;">
       <div v-for="item in nowCitys" :key="item">
         <WeatherCard 
           :city="item"
@@ -49,7 +50,10 @@ export default {
     deleteTown(name) {
       this.nowCitys = this.nowCitys.filter(item => item !== name);
       this.cityStore.deleteCity(name);
-    }
+    },
+    closePopUp() {
+      this.isCity = false;
+    },
   },
   watch: {
     searchValue() {

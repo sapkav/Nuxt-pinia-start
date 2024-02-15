@@ -17,6 +17,15 @@ body {
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.button-style {
+  border-radius: 5px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px 2px;
+}
+
 .btn:hover {
   transform: scale(1.1);
   background-color: rgb(28, 173, 173);
