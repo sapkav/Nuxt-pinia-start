@@ -9,11 +9,20 @@
       <input type="text" v-model="searchValue">
       <button @click="cityAdding">Добавить город</button>
     </div>
-    <div class="max-h-[50vh] h-[50vh] grid overflow-auto" style="grid-template-columns: repeat(auto-fit, minmax(300px, 330px)); justify-content: space-around;">
-      <div v-for="item in nowCitys" :key="item">
-        <WeatherCard 
-          :city="item"
-          @deleteTown="deleteTown"
+    <div class="flex">
+      <div class="grid overflow-auto h-[calc(100vh-130px)]" style="grid-template-columns: repeat(auto-fit, minmax(300px, 330px)); justify-content: space-around; width: 100%;">
+        <div v-for="item in nowCitys" :key="item">
+          <WeatherCard 
+            :city="item"
+            @deleteTown="deleteTown"
+            @checkDetails="checkDetails"
+            />
+        </div>
+      </div>
+      <div style="width: 500px;" class="grid overflow-auto h-[calc(100vh-130px)]" v-if="isDetails">
+        <weather-detail
+          :city="choosedCity"
+          :key="choosedCity"
           />
       </div>
     </div>
@@ -22,10 +31,12 @@
 
 <script>
 import PopUpCity from '~/components/PopUps/PopUpCity.vue';
+import WeatherCard from '~/components/weather/weatherCard.vue';
+import WeatherDetail from '~/components/weather/weatherDetail.vue';
 import { useCityStore } from '~/store'
 
 export default {
-  components: { PopUpCity },
+  components: { PopUpCity, WeatherCard, WeatherDetail },
   name: 'weather',
   async setup() {
     const cityStore = useCityStore();
@@ -33,6 +44,8 @@ export default {
     let searchValue = ref('');
     let nowCitys = ref(cityStore.citys.slice(0));
     let isCity = ref(false);
+    const isDetails = ref(false);
+    const choosedCity = ref('');
 
     const cityAdding = () => {
       isCity.value = true;
@@ -44,6 +57,8 @@ export default {
       nowCitys,
       isCity,
       cityAdding,
+      isDetails,
+      choosedCity,
     }
   },
   methods: {
@@ -53,6 +68,11 @@ export default {
     },
     closePopUp() {
       this.isCity = false;
+    },
+    checkDetails(val) {
+      this.choosedCity = val;
+      //this.isDetails = !this.isDetails;
+      if (!this.isDetails) this.isDetails = true;
     },
   },
   watch: {

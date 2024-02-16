@@ -27,8 +27,8 @@
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/style-resources": "^1.2.2",
     "@pinia/nuxt": "^0.5.1",
-    "@revolist/vue3-datagrid": "^3.6.17",
     "axios": "^1.6.3",
+    "defu": "^6.1.4",
     "draggable-resizable-vue3": "^1.0.94-beta",
     "json-server": "^0.17.4",
     "nuxt-helm": "^0.0.2",
@@ -36,7 +36,6 @@
     "swiper": "^11.0.6",
     "tabulator-tables": "^5.6.0",
     "video.js": "^8.9.0",
-    "vue-google-charts": "^1.1.0",
-    "vue3-table-lite": "^1.4.0"
+    "vue-google-charts": "^1.1.0"
   }
 }

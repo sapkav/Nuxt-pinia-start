@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="grid grid-cols-2 justify-items-center pt-3">
-        <button class="btn-weather">Check details</button>
+        <button class="btn-weather" @click="checkDetails">Check details</button>
         <button class="btn-weather" @click="deleteCity">Delete city</button>
       </div>
     </div>
@@ -48,7 +48,7 @@ export default {
       isLoading: false,
     }
   },
-  emits: ['deleteTown'],
+  emits: ['deleteTown', 'checkDetails'],
   created() {
     this.airQuailty = {
       1: 'Хороший',
@@ -372,8 +372,11 @@ export default {
   },
   methods: {
     deleteCity() {
-      this.$emit('deleteTown', this.city)
-    }
+      this.$emit('deleteTown', this.city);
+    },
+    checkDetails() {
+      this.$emit('checkDetails', this.city);
+    },
   }
 };
 </script>
