@@ -351,7 +351,6 @@ export default {
     // ]
   },
   async mounted() {
-    const token = '7609a460cf7a453f8b2115143240801';
     const response = (await axios.get(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${this.city}&lang=ru&days=3&aqi=yes&alerts=yes&dt=2024-01-08`));
     this.weather = await Object.assign(response.data.location, response.data.current);
     this.isLoading = true;

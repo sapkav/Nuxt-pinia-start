@@ -35,7 +35,6 @@ export default {
     }
   },
   async setup(props) {
-    const token = '7609a460cf7a453f8b2115143240801';
     const weatherDay = (await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${token}&q=${props.city}&lang=ru&days=1&aqi=no&alerts=no`)).data.forecast.forecastday[0].hour;
     weatherDay.forEach(element => {
       element.wind_speed = (element.wind_kph * 0.2778).toFixed(1)

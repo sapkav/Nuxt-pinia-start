@@ -5,7 +5,7 @@
       @closePopUp="closePopUp"
       />
     <div class="weather-header">
-      Мониторинг погоды в разных городах
+      Мониторинг погоды в разных городах <button @click="test">test</button>
       <input type="text" v-model="searchValue">
       <button @click="cityAdding">Добавить город</button>
     </div>
@@ -34,6 +34,7 @@ import PopUpCity from '~/components/PopUps/PopUpCity.vue';
 import WeatherCard from '~/components/weather/weatherCard.vue';
 import WeatherDetail from '~/components/weather/weatherDetail.vue';
 import { useCityStore } from '~/store'
+import axios from 'axios'
 
 export default {
   components: { PopUpCity, WeatherCard, WeatherDetail },
@@ -73,6 +74,28 @@ export default {
       this.choosedCity = val;
       //this.isDetails = !this.isDetails;
       if (!this.isDetails) this.isDetails = true;
+    },
+    async test() {
+      const json = JSON.stringify(this.nowCitys);
+      // const res = await axios.post('http://localhost:3004/citys', json, {
+      //   headers: {
+      //     // Overwrite Axios's automatically set Content-Type
+      //     'Content-Type': 'application/json'
+      //   }
+      // });
+      // const response = await fetch('http://localhost:3004/citys', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: json
+      // })
+      // return response.json()
+      axios.post('http://localhost:3004/citys', json).then(resp => {
+          console.log(resp.data);
+      }).catch(error => {
+          console.log(error);
+      });
     },
   },
   watch: {
