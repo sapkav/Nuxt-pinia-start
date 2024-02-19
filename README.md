@@ -26,6 +26,8 @@ Start the development server on `http://localhost:3000`:
 
 ```bash
 # npm
+add key.js abd export openweatherapi :((((((((((
+npm run server
 npm run dev
 
 # pnpm
