@@ -39,6 +39,7 @@
 
 <script>
 import axios from 'axios'
+import key from '@/key'
 
 export default {
   name: "weatherCard",
@@ -351,7 +352,7 @@ export default {
     // ]
   },
   async mounted() {
-    const response = (await axios.get(`http://api.weatherapi.com/v1/current.json?key=${token}&q=${this.city}&lang=ru&days=3&aqi=yes&alerts=yes&dt=2024-01-08`));
+    const response = (await axios.get(`http://api.weatherapi.com/v1/current.json?key=${key.key}&q=${this.city}&lang=ru&days=3&aqi=yes&alerts=yes&dt=2024-01-08`));
     this.weather = await Object.assign(response.data.location, response.data.current);
     this.isLoading = true;
   },

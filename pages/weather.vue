@@ -4,13 +4,16 @@
       v-if="isCity"
       @closePopUp="closePopUp"
       />
-    <div class="weather-header">
-      Мониторинг погоды в разных городах <button @click="test">test</button>
-      <input type="text" v-model="searchValue">
-      <button @click="cityAdding">Добавить город</button>
-    </div>
+    <section class="weather-header">
+      <h1 style="font-size: 20px; font-weight: 700; padding-left: 5px;">Мониторинг погоды в разных городах</h1>
+      <div style="display: flex; position: relative;">
+        <label for="weather" style="margin-right: 5px;">Поиск: </label>
+        <input type="search" v-model="searchValue" id="weather" class="padding-left: 5px">
+        <button @click="cityAdding" class="weather-header-btn">Add city</button>
+      </div>
+    </section>
     <div class="flex">
-      <div class="grid overflow-auto h-[calc(100vh-130px)]" style="grid-template-columns: repeat(auto-fit, minmax(300px, 330px)); justify-content: space-around; width: 100%;">
+      <div class="grid overflow-auto h-[calc(100vh-100px)]" style="grid-template-columns: repeat(auto-fit, minmax(300px, 330px)); justify-content: space-around; width: 100%;">
         <div v-for="item in nowCitys" :key="item">
           <WeatherCard 
             :city="item"
@@ -19,10 +22,11 @@
             />
         </div>
       </div>
-      <div style="width: 500px;" class="grid overflow-auto h-[calc(100vh-130px)]" v-if="isDetails">
+      <div style="width: 500px;" class="grid overflow-auto h-[calc(100vh-100px)]" v-if="isDetails">
         <weather-detail
           :city="choosedCity"
           :key="choosedCity"
+          @closeDetails="closeDetails"
           />
       </div>
     </div>
@@ -67,30 +71,21 @@ export default {
       this.nowCitys = this.nowCitys.filter(item => item !== name);
       this.cityStore.deleteCity(name);
     },
+    closeDetails() {
+      this.isDetails = false;
+    },
+    clearInput() {
+      this.searchValue = ''
+    },
     closePopUp() {
       this.isCity = false;
     },
     checkDetails(val) {
       this.choosedCity = val;
-      //this.isDetails = !this.isDetails;
       if (!this.isDetails) this.isDetails = true;
     },
     async test() {
       const json = JSON.stringify(this.nowCitys);
-      // const res = await axios.post('http://localhost:3004/citys', json, {
-      //   headers: {
-      //     // Overwrite Axios's automatically set Content-Type
-      //     'Content-Type': 'application/json'
-      //   }
-      // });
-      // const response = await fetch('http://localhost:3004/citys', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: json
-      // })
-      // return response.json()
       axios.post('http://localhost:3004/citys', json).then(resp => {
           console.log(resp.data);
       }).catch(error => {
@@ -112,9 +107,33 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+input[type='search'] {
+  outline-offset: 0px !important;
+  padding-left: 2px;
+}
 .weather-header {
-  height: 65px;
+  height: 35px;
   width: 100%;
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &-btn {
+    background-color: rgb(214, 187, 187);
+    color: rgb(49, 26, 26);
+    padding: 0px 5px;
+    margin: 0 10px 0px 20px;
+  }
+
+  &-delete {
+    width: 12px;
+    height: 12px;
+    margin-top: 6px;
+    margin-left: 3px;
+    cursor: pointer;
+    position: absolute;
+    right: 103px;
+  }
 }
 </style>

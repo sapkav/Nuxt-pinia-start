@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div>{{ city }}</div>
+    <div>
+      {{ city }}
+      <button @click="$emit('closeDetails')">close details</button>
+    </div>
     <div v-for="item in weatherDay" :key="item.hour">
       <div>
         <div>{{ item.time }}:</div>
@@ -25,6 +28,7 @@
 <script>
 import { computed } from 'vue'
 import axios from 'axios'
+import key from '@/key'
 
 export default {
   name: 'weatherDetauil',
@@ -34,8 +38,9 @@ export default {
       default: '',
     }
   },
+  emits: ['closeDetails'],
   async setup(props) {
-    const weatherDay = (await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${token}&q=${props.city}&lang=ru&days=1&aqi=no&alerts=no`)).data.forecast.forecastday[0].hour;
+    const weatherDay = (await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${key.key}&q=${props.city}&lang=ru&days=1&aqi=no&alerts=no`)).data.forecast.forecastday[0].hour;
     weatherDay.forEach(element => {
       element.wind_speed = (element.wind_kph * 0.2778).toFixed(1)
     });
