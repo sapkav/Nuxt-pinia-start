@@ -30,8 +30,20 @@
             <div style="font-size: 12px;">{{ item.time_ago }}</div>
           </div>
           <div style="width: 250px; text-align: center;">{{gameModes[item.game_mode].name}}</div>
-          <div style="width: 200px; text-align: center;">{{calcTime(item.duration)}}</div>
-          <div style="width: 250px; text-align: center;">{{item.kills}}/{{item.deaths}}/{{item.assists}}</div>
+          <div style="width: 200px; text-align: center;" class="game-segment">
+            <span>{{calcTime(item.duration)}}</span>
+            <div class="game-segment-kda">
+              <div class="game-segment-kda_death" :style="{width: (item.duration/max_duration) * 100 + '%'}"></div>
+            </div>
+          </div>
+          <div style="width: 250px; text-align: center;" class="game-segment">
+            <span>{{item.kills}}/{{item.deaths}}/{{item.assists}}</span>
+            <div class="game-segment-kda">
+              <div class="game-segment-kda_kill" :style="{width: (item.kills/item.sum) * 100 + '%'}"></div>
+              <div class="game-segment-kda_death" :style="{width: (item.deaths/item.sum) * 100 + '%'}"></div>
+              <div class="game-segment-kda_assist" :style="{width: (item.assists/item.sum) * 100 + '%'}"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -46,9 +58,14 @@ export default {
   async created() {
     this.games = (await axios('https://api.opendota.com/api/players/248754619/matches')).data.slice(0, 15);
     console.log(this.games);
+    this.max_duration = 0;
     this.games.forEach(item => {
       item.match_result = this.winCheck(item.player_slot, item.radiant_win);
       item.time_ago = this.timeCalc(item.start_time);
+      item.sum = item.kills + item.deaths + item.assists;
+      if (item.duration > this.max_duration) {
+        this.max_duration = item.duration;
+      }
     })
     this.person = (await axios('https://api.opendota.com/api/players/248754619')).data.profile;
     console.log(this.person)
@@ -124,6 +141,30 @@ export default {
   }
 
   
+}
+
+.game-segment {
+  width: 250px;
+
+  &-kda {
+    display: flex;
+    padding: 0px 10px;
+
+    &_kill {
+      background: red;
+      height: 4px;
+    }
+
+    &_death {
+      background: white;
+      height: 4px;
+    }
+
+    &_assist {
+      background: green;
+      height: 4px;
+    }
+  }
 }
 
 .dotaGames-content {
