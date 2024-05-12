@@ -24,7 +24,13 @@
       </div>
       <div v-for="item in games" :key="item.match_id" class="dotaGames-body-matches_game">
         <div class="flex">
-          <div style="width: 100%; padding-left: 10px;">{{displayHero(item.hero_id).localized_name}} / {{ item.average_rank }}</div>
+          <div style="width: 100%; padding-left: 10px; padding-top: 5px">
+            <video width="50" height="20">
+              <!-- <source src="@/assets/gif/npc_dota_hero_legion_commander.webm`" type="video/webm" />  -->
+              <source :src="`_nuxt/assets/gif/${displayHero(item.hero_id).name}.webm`" type="video/webm" /> 
+            </video>
+            <NuxtLink :to="`dota/${item.match_id}`">{{displayHero(item.hero_id).localized_name}}</NuxtLink> / {{ item.average_rank }}
+          </div>
           <div style="width: 250px; text-align: center; display: grid; justify-content: flex-start;">
             <div :style="item.match_result === 'Победа' ? {color: 'green'} : {color: 'red'}">{{ item.match_result }}</div>
             <div style="font-size: 12px;">{{ item.time_ago }}</div>
